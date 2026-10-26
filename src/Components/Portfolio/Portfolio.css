@@ -162,6 +162,8 @@
   font-size: 18px;
   font-weight: 500;
   transition: var(--transition);
+  text-decoration: none;
+  color: var(--text-main);
 }
 
 .portfolio-showmore:hover {

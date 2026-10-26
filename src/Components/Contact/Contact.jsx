@@ -1,7 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState(''); // 'submitting' | 'success' | 'error'
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    setStatus('submitting');
+
+    try {
+      // Netlify Form Submission
+      const encoded = new URLSearchParams({
+        'form-name': 'contact',
+        ...formData
+      }).toString();
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encoded
+      });
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className='contact' id='contact'>
       <div className="contact-title">
@@ -27,21 +68,74 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <form className="contact-right">
-          <label htmlFor="">Your Name</label>
-          <input type="text" placeholder='Enter your name' name='name' />
 
-          <label htmlFor="">Your Email</label>
-          <input type="email" placeholder='Enter your email' name='email' />
+        <form 
+          className="contact-right" 
+          name="contact" 
+          method="POST" 
+          data-netlify="true"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
 
-          <label htmlFor="">Write your message here</label>
-          <textarea name="message" rows="8" placeholder='Enter your message'></textarea>
+          {status === 'success' && (
+            <div className="contact-success-msg">
+              <i className="bx bx-check-circle"></i>
+              <span>Thank you! Your message has been sent successfully.</span>
+            </div>
+          )}
 
-          <button type='submit' className="contact-submit">Submit now</button>
+          {status === 'error' && (
+            <div className="contact-error-msg">
+              <i className="bx bx-error-circle"></i>
+              <span>Something went wrong. Please try emailing directly to pesala2003@gmail.com</span>
+            </div>
+          )}
+
+          <label htmlFor="contact-name">Your Name</label>
+          <input 
+            type="text" 
+            id="contact-name"
+            placeholder='Enter your name' 
+            name='name' 
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="contact-email">Your Email</label>
+          <input 
+            type="email" 
+            id="contact-email"
+            placeholder='Enter your email' 
+            name='email' 
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label htmlFor="contact-message">Write your message here</label>
+          <textarea 
+            id="contact-message"
+            name="message" 
+            rows="6" 
+            placeholder='Enter your message'
+            value={formData.message}
+            onChange={handleChange}
+            required
+          ></textarea>
+
+          <button 
+            type='submit' 
+            className="contact-submit" 
+            disabled={status === 'submitting'}
+          >
+            {status === 'submitting' ? 'Sending...' : 'Submit now'}
+          </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Contact;

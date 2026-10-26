@@ -208,12 +208,17 @@ const Portfolio = () => {
         </div>
       )}
 
-      <div className="portfolio-showmore">
-        <p>Show More</p>
+      <a 
+        href="https://github.com/PesalaRavindu" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="portfolio-showmore"
+      >
+        <p>Show More on GitHub</p>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </div>
+      </a>
     </div>
   );
 };

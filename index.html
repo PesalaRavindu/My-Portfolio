@@ -2,15 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio react</title>
+    <title>Pesala Ravindu | Software Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Pesala Ravindu, Software Engineering Undergraduate. Showcasing modern web and mobile apps, algorithms, and engineering projects." />
+    <meta name="author" content="Pesala Ravindu" />
+    <meta property="og:title" content="Pesala Ravindu | Software Engineer Portfolio" />
+    <meta property="og:description" content="Software Engineering Undergraduate specializing in React, Java, Android, and modern web applications." />
+    <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
+    <!-- Hidden form for Netlify bot detection -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

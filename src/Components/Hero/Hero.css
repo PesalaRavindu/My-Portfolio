@@ -80,6 +80,10 @@
   margin-top: 2rem;
 }
 
+.hero-anchor-link {
+  text-decoration: none;
+}
+
 .hero-connect {
   padding: 14px 35px;
   border-radius: 30px;
@@ -90,6 +94,7 @@
   cursor: pointer;
   transition: var(--transition);
   box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+  text-align: center;
 }
 
 .hero-connect:hover {
@@ -107,6 +112,7 @@
   cursor: pointer;
   border: 2px solid rgba(255, 255, 255, 0.2);
   transition: var(--transition);
+  text-align: center;
 }
 
 .hero-resume:hover {
@@ -117,16 +123,18 @@
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
   .hero {
-    padding-top: 150px;
+    padding-top: 140px;
   }
   .hero-action {
     flex-direction: column;
     width: 100%;
   }
-  .hero-connect, .hero-resume {
+  .hero-anchor-link,
+  .hero-connect, 
+  .hero-resume {
     width: 100%;
     max-width: 300px;
   }
