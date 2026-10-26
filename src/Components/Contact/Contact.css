@@ -1,0 +1,139 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  margin: 100px 5%;
+}
+
+.contact-title {
+  text-align: center;
+}
+
+.contact-title h2 {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.contact-section {
+  display: flex;
+  gap: 150px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 50px;
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-glass);
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+}
+
+.contact-left h1 {
+  font-size: 50px;
+  font-weight: 700;
+  background: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-left p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.contact-detail i {
+  font-size: 24px;
+  color: var(--accent-primary);
+  background: rgba(139, 92, 246, 0.1);
+  padding: 15px;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.contact-right label {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.contact-right input,
+.contact-right textarea {
+  border: none;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-primary);
+}
+
+.contact-submit {
+  border: none;
+  color: white;
+  background: var(--gradient-main);
+  border-radius: 50px;
+  font-size: 18px;
+  padding: 15px 40px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+.contact-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(139, 92, 246, 0.5);
+}
+
+@media (max-width: 960px) {
+  .contact-section {
+    flex-direction: column;
+    padding: 30px;
+    gap: 60px;
+  }
+}
